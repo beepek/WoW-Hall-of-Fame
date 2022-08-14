@@ -1,5 +1,6 @@
 // load the env consts
 require('dotenv').config();
+const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const logger = require('morgan');
@@ -9,6 +10,10 @@ const session = require('express-session');
 const passport = require('passport');
 const methodOverride = require('method-override');
 const indexRoutes = require('./routes/index');
+const indexRouter = require('./routes/index');
+const guildRouter = require('./routes/guilds');
+const worldFirstRouter = require('./routes/worldfirst');
+
 
 
 // create the Express app
@@ -48,7 +53,8 @@ app.use(function (req, res, next) {
   // single ejs view
   next();
 });
-
+app.use('/', indexRouter);
+app.use('/worldfirst', worldFirstRouter);
 // mount all routes with appropriate base paths
 app.use('/', indexRoutes);
 
