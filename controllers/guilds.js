@@ -8,7 +8,7 @@ module.exports = {
     show,
 };
 
-async function show(req, res){
+async function show(req, res)
    try {
       
       const guildDocument = await Guild.findById(req.params.id)

@@ -1,0 +1,21 @@
+<section id="show-page">
+    <div>Boss: </div>
+    <div>
+     <%= worldFirst.bossName %>
+    </div> 
+    <div>Guild: 
+     <%=guilds.name %>
+    </div>
+    <div>Kill Date: 
+     <%=worldFirst.date %>
+    </div>
+ </section>
+ <% if (user) { %>
+     <br><br>
+     <h1>Comments</h1>
+     <form id="add-comment-form" method="POST" action="/worldfirst/<%= worldFirst._id %>/comments">
+         <label>Comments: </label>
+         <textarea name="content"></textarea>  
+         <input type="submit" value="Add Comment">
+     </form>
+     <% } %> 
