@@ -13,7 +13,7 @@ const guildSchema = new mongoose.Schema(
    } 
 );
 
-const worldFirstSchema =  new mongoose.Schema(
+const worldFirstSchema =  new mongoose.Schema({
     boss: {
        name: String,
        required: true, 
