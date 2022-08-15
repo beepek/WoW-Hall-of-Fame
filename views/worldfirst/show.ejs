@@ -1,21 +1,36 @@
+<%- include('../partials/header') %>
+
 <section id="show-page">
-    <div>Boss: </div>
-    <div>
-     <%= worldFirst.bossName %>
-    </div> 
-    <div>Guild: 
-     <%=guilds.name %>
-    </div>
-    <div>Kill Date: 
-     <%=worldFirst.date %>
-    </div>
- </section>
- <% if (user) { %>
-     <br><br>
-     <h1>Comments</h1>
-     <form id="add-comment-form" method="POST" action="/worldfirst/<%= worldFirst._id %>/comments">
-         <label>Comments: </label>
-         <textarea name="content"></textarea>  
-         <input type="submit" value="Add Comment">
-     </form>
-     <% } %> 
+    <tr>
+        <td><%= worldFirst.boss %></td>
+        <td><%= worldFirst.guild %></td>
+        <td><%= worldFirst.date %></td>
+        <td><%= worldFirst.daysLived %> </td>
+        <td><%= worldFirst.comments %></td>
+   </tr>
+    
+        
+ <div>Add World First
+    <form method="POST" action="/worldfirst/<%= worldFirst._id %>/worldfirst">
+        <label>comments:</label>
+			<select name="airport">
+				<option value="AUS">AUS</option>
+				<option value="DFW">DFW</option>
+				<option value="DEN">DEN</option>
+				<option value="LAX">LAX</option>
+                <option value="SAN">SAN</option>
+			  </select>
+        </form>
+ </div>
+ <br>
+    <a id="tickets" href="/flights/<%= flight._id %>/tickets/new"> Buy Tickets</a>
+
+    <form id="buy-ticket-form" method="POST"
+    action="/flights/<%= flight._id %>/tickets/new">
+        <label>Seat:</label>
+        <input type="text" name="seat" required pattern="[A-F][1-9]\D?" title="bleh">
+        <label>Price:</label>
+        <input type="number" name="price" placeholder="$500">
+        <input type="submit" value="Buy Ticket">
+</form>
+<%- include('../partials/footer') %>

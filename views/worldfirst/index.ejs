@@ -1,21 +1,50 @@
-<%- include('../partials/header') %>
-<table id="list">
-  <thead>
-    <tr>
-      <th>Boss</th>
-      <th>Kill<br>Date</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% worldFirst.forEach(function(m) { %>
-      <tr>
-        <td><%= w.bossName %></td>
-        <td><%= w.killDate %></td>
-        <td><a href="/worldfirst/<%= m._id %>">DETAILS</a></td>
-      </tr>
-      <% }); %>
-    </tbody>
-  </table>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <title>WoW Hall of Fame</title>
+</head>
+
+
+<body>
+  <nav><a href="/worldfirst">View All World Firsts</a><a href="/worldfirst/new">Add World First</a></nav>
+
+  <h1>World Firsts</h1>
   
-<%- include('../partials/footer') %>
+  <table>
+    <thead>
+      <tr>
+        <th>Boss</th>
+        <th>Guild</th>
+        <th>Date</th>
+        <th>Days Lived</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+	  <% worldFirst.forEach(f => { %>
+	   
+	 
+        <tr>
+          <td><%= w.boss %></td>
+          <td><%= w.guild %> </td>
+          <td><%= w.date %></td>
+          <td><%= w.daysLived %></td>
+          <td><a id="details" href="/worldfirst/<%= w._id %>">Show Details</a></td>
+          <td><a href="/worldfirst/<%= w._id %>/worldfirst/new">Add WorldFirst</a></td>
+         
+
+       
+         
+        </tr>
+
+		<% }) %>
+   
+    </tbody>
+    
+  </table>
+</body>
+</html>
