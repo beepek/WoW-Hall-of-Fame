@@ -31,7 +31,7 @@ function index(req, res) {
       // because this is after we got a response from the db that we
       // found all the movies
       res.render("guilds/index.ejs", {
-        movies: allOfTheMoviesInTheDatabase,
+        guilds: allGuildsInTheDatabase,
       }); // end of render
     });
   }

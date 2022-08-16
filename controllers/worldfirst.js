@@ -54,7 +54,7 @@ function create(req, res) {
     console.log(req.params.id, "<- params worldfirst id");
     console.log(req.body, "the contents of the form");
     //    worldFirstDocument.save(function(err) {
-        res.redirect(`/worldfirst/${req.params.id}`);
+        res.redirect(`worldfirst`);
        };
 
       

@@ -10,22 +10,7 @@
    </tr>
     
         
- <div>Add World First
-    <form method="POST" action="/worldfirst/<%= worldFirst._id %>/worldfirst">
-        <label>comments:</label>
-			<input name="text" value 
-				
-        </form>
- </div>
- <br>
-    <a id="tickets" href="/flights/<%= flight._id %>/tickets/new"> Buy Tickets</a>
 
-    <form id="buy-ticket-form" method="POST"
-    action="/flights/<%= flight._id %>/tickets/new">
-        <label>Seat:</label>
-        <input type="text" name="seat" required pattern="[A-F][1-9]\D?" title="bleh">
-        <label>Price:</label>
-        <input type="number" name="price" placeholder="$500">
-        <input type="submit" value="Buy Ticket">
+
 </form>
 <%- include('../partials/footer') %>
