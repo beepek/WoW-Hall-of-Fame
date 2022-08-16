@@ -2,28 +2,21 @@ const Guild = require("../models/guilds");
 const WorldFirst = require("../models/worldfirst");
 
  module.exports = {
-     new: newComment,
-     create,
+    // new: newComment,
+     //create,
      index,
      show,
  };
 
-async function show(req, res)
-try {
-      
-      const guildDocument = await Guild.findById(req.params.id)
-                                        .populate("guilds")
-                                        .exec()
-  
-      res.render("guild/show", {
-        guild: guildDocument,
-       
-      });
-  
-    } catch(err){
-      res.send(err);
-    }
-//wtf am I doing wrong here???????
+ function show(req, res) {
+	WorldFirst.findById(req.params.id, function(err, worldFirstDocument){
+		//Ticket.find({flight:req.params.id}, function(err, ticketDocuments){
+		console.log(worldFirstDocument, "world first page")
+		res.render('worldfirst/show', { title: 'world firsts', worldFirst: worldFirstDocument});
+		})
+	};
+
+
 function index(req, res) {
     // List out the movies
     Guild.find({}, function (err, allGuildsInTheDatabase) {

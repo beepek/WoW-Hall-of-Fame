@@ -9,7 +9,6 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
 const methodOverride = require('method-override');
-const indexRoutes = require('./routes/index');
 const indexRouter = require('./routes/index');
 const guildRouter = require('./routes/guilds');
 const worldFirstRouter = require('./routes/worldfirst');
@@ -56,7 +55,7 @@ app.use(function (req, res, next) {
 app.use('/', indexRouter);
 app.use('/worldfirst', worldFirstRouter);
 // mount all routes with appropriate base paths
-app.use('/', indexRoutes);
+// app.use('/', indexRoutes);
 
 
 // invalid request, send 404 page
