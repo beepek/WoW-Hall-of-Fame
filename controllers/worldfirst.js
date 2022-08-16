@@ -7,7 +7,6 @@ module.exports = {
 	new: newWorldFirst, 
 	create,
 	index,
-	//delete: deleteTicket,
 	show,
 	
 }
@@ -20,7 +19,7 @@ function show(req, res) {
 	});
 }
 
-function index(req, res){
+function index(req, res) {
 	// List out the flights
 	WorldFirst.find({}, function(err, allWorldFirstsInTheDatabase){
 		console.log(allWorldFirstsInTheDatabase);//Ticket.find({flightDocumentCreatedInTheDatabase}) " <- all the flights");
@@ -45,7 +44,7 @@ function newWorldFirst(req, res){
 
 function create(req, res) {
     
-    WorldFirst.create(req.body, function(err, wfDocCreated){
+    WorldFirst.create(req.body, function(err, worldFirstDocumentCreated){
         return res.render('worldfirst/new.ejs')
     })
     // WorldFirst.findById(req.params.id, function (err, worldFirstDocument) {

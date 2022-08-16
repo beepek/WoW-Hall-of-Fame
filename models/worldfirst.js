@@ -14,17 +14,10 @@ const mongoose = require("mongoose");
 // );
 
 const worldFirstSchema =  new mongoose.Schema ({
-    boss: {
-       name: String,       
-    },
-    killDate: {
-        type: Number,
-    },
-    attempts: {
-        type: Number,
-    },
-    guild: {
-        name: String,
-    },
-})
-module.exports = mongoose.model('worldfirst', worldFirstSchema);
+    boss: String,       
+    killDate: Number,
+    attempts: Number,
+    guild: String,
+    
+});
+module.exports = mongoose.model('WorldFirst', worldFirstSchema);
