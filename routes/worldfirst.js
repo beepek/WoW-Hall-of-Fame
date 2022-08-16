@@ -5,9 +5,9 @@ const isLoggedIn = require('../config/auth')
 /* GET users listing. */
 // /movies/new
 router.get('/', worldFirstController.index);
-router.get('/new', isLoggedIn, worldFirstController.new);
+router.get('/new', worldFirstController.new);
 // /movies
 router.get('/:id', worldFirstController.show);
-router.post('/', isLoggedIn, worldFirstController.create);
+router.post('/', worldFirstController.create);
 
 module.exports = router;

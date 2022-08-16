@@ -5,3 +5,4 @@ const guildSchema = new Schema({
     guildName: {type: String, required: true},
     
 })
+module.exports = mongoose.model('guilds', guildSchema);
