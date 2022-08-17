@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/worldfirst/<%= worldFirst._id %>?_method=UPDATE" method="POST">
+        <button type="submit" class="btn btn-secondary btn-lg px-4 gap-3">Edit Post</button>
+        <label>Edit:
+            <input type="text" name="Edit">
+            <label>Boss:
+            <input type="text" name="boss">
+		</label><br>
+		<label>Guild:
+			<input type="text" name="guild">
+		</label><br>
+		<label>Date
+			<input type="text" name="date">
+		</label><br>
+		<label>Days Lived
+			<input type="text" name="days lived">
+		</label><br>
+		<label>Comment
+			<input type="text" name="new comment">
+		</label><br>
+		<input type="submit" value="Add World First">
+    </form>
+    
+</body>
+</html>

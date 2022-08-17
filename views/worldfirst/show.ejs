@@ -8,9 +8,16 @@
         <td><%= worldFirst.daysLived %> </td>
         <td><%= worldFirst.comments %></td>
    </tr>
+   <form action="/worldfirst/<%= worldFirst._id %>?_method=DELETE" method="POST">
+    <button type="submit" class="btn btn-secondary btn-lg px-4 gap-3">Delete Post</button>
+  </form>
+   <a href="/worldfirst/<%= worldFirst._id %>/edit">Hello</a>   
+  <form action="/worldfirst/<%= worldFirst._id %>/edit" method="POST">
     
-        
-
-
+    <button type="submit" class="btn btn-secondary btn-lg px-4 gap-3">Edit Post</button>
+    <label>Edit:
+        <input type="text" name="Edit">
 </form>
+
+
 <%- include('../partials/footer') %>

@@ -1,5 +1,6 @@
 const WorldFirst = require('../models/worldfirst')
-const Guilds = require('../models/guilds')
+const Guilds = require('../models/guilds');
+//const worldfirst = require('../models/worldfirst');
 // import our Model object which can perform crud operations
 // on the movies collection in our mongodb database
 
@@ -8,6 +9,9 @@ module.exports = {
 	create,
 	index,
 	show,
+    delete: deleteWorldFirst,
+    update: updateOne,
+    edit: editWorldFirst
 	
 }
 function show(req, res) {
@@ -44,7 +48,7 @@ function newWorldFirst(req, res){
 
 function create(req, res) {
     
-    WorldFirst.create(req.body, function(err, worldFirstDocumentCreated){
+    WorldFirst.create(req.body, function(err, worldFirstDocument){
         return res.render('worldfirst/new.ejs')
     })
     // WorldFirst.findById(req.params.id, function (err, worldFirstDocument) {
@@ -55,5 +59,18 @@ function create(req, res) {
     //    worldFirstDocument.save(function(err) {
         res.redirect(`worldfirst`);
        };
-
-      
+function deleteWorldFirst(req, res) {
+    WorldFirst.findByIdAndRemove(req.params.id, function(){
+        res.redirect('/worldfirst')
+    })
+}
+function updateOne(req, res) {
+    WorldFirst.findByIdAndUpdate(req.params.id, function(){
+        res.redirect('/worldfirst')
+    })
+}
+function editWorldFirst(req, res){
+    WorldFirst.findById(req.params.id, function(err, worldFirstDocument){
+        res.render('/worldfirst/edit', { title: 'Kill Details', worldFirst: worldFirstDocument})
+    })
+}  
