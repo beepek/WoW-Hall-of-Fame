@@ -16,12 +16,12 @@ module.exports = {
 }
 function show(req, res) {
 	WorldFirst.findById(req.params.id, function(err, worldFirstDocument){
-		Guilds.find({worldFirst:req.params.id}, function(err, guildDocuments){
+		// Guilds.find({worldFirst:req.params.id}, function(err, guildDocuments){
 		console.log(worldFirstDocument, "world first page")
 		res.render('worldfirst/show', { title: 'Kill Details', worldFirst: worldFirstDocument, guilds: guildDocuments});
 		})
-	});
-}
+	};
+
 
 function index(req, res) {
 	// List out the flights
