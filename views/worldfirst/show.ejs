@@ -4,8 +4,8 @@
     <tr>
         <td><%= worldFirst.boss %></td>
         <td><%= worldFirst.guild %></td>
-        <td><%= worldFirst.date %></td>
-        <td><%= worldFirst.daysLived %> </td>
+        <td><%= worldFirst.killDate %></td>
+        <td><%= worldFirst.attempts %> </td>
         <td><%= worldFirst.comments %></td>
    </tr>
    <form action="/worldfirst/<%= worldFirst._id %>?_method=DELETE" method="POST">

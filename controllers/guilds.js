@@ -1,4 +1,4 @@
-const Guild = require("../models/guilds");
+const Guild = require("../models/guild");
 const WorldFirst = require("../models/worldfirst");
 
  module.exports = {
@@ -30,8 +30,8 @@ function index(req, res) {
       // response should be inside the callback,
       // because this is after we got a response from the db that we
       // found all the movies
-      res.render("guilds/index.ejs", {
-        guilds: allGuildsInTheDatabase,
+      res.render("guild/index.ejs", {
+        guild: allGuildsInTheDatabase,
       }); // end of render
     });
   }

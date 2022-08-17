@@ -7,7 +7,8 @@ const userSchema = new mongoose.Schema({
 	  required: true
 	},
 	email: String,
-	avatar: String
+	avatar: String,
+	worldFirst: {type: mongoose.Schema.Types.ObjectId, ref: "WorldFirst"}
   }, {
 	timestamps: true
   });
