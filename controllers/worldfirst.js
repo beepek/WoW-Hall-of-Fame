@@ -71,6 +71,6 @@ function updateOne(req, res) {
 }
 function editWorldFirst(req, res){
     WorldFirst.findById(req.params.id, function(err, worldFirstDocument){
-        res.render('/worldfirst/edit', { title: 'Kill Details', worldFirst: worldFirstDocument})
+        res.render('worldfirst/edit', { title: 'Kill Details', worldFirst: worldFirstDocument})
     })
 }  
