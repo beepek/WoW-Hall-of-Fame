@@ -9,6 +9,6 @@ router.get('/new', worldFirstController.new);
 router.get('/:id', worldFirstController.show);
 router.post('/', worldFirstController.create);
 router.delete('/:id', worldFirstController.delete);
-router.get('/:id/edit', worldFirstController.edit);
+router.get('worldfirst/:id/edit', worldFirstController.edit);
 
 module.exports = router;
