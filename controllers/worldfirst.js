@@ -9,7 +9,7 @@ module.exports = {
 	index,
 	show,
 	delete: deleteWorldFirst,
-	update: updateOne,
+	update: update,
 	edit: edit,
 
 }
@@ -58,9 +58,17 @@ function deleteWorldFirst(req, res) {
 }
 
 
-//11 spent on this basic functionality and nothing to show for it
-async function updateOne(req, res) {
 
+function update(req, res) {
+WorldFirst.findOneAndUpdate(
+	{_id: req.params.id, user: req.user._id},
+	req.body,
+	{new: true},
+	function(err, worldFirst) {
+		if (err || !worldFirst) return res.redirect('/worldfirst');
+		res.redirect(`/worldfirst`)
+	}
+);
 }
 function edit(req, res) {
 	WorldFirst.findById(req.params.id, function (err, worldFirstDocument) {
