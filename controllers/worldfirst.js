@@ -90,8 +90,9 @@ function deleteWorldFirst(req, res) {
         res.redirect('/worldfirst')
     })
 }
-//really who cares. I am too stupid to code in any kind of competent capacity. Im a fucking idiot with no idea or clue what to do.
-//i shouldnt even be allowed to touch code. 
+
+ 
+//11 spent on this basic functionality and nothing to show for it
 async function updateOne(req, res) {
 	const guildDocument=await Guild.create({guild: req.body.guild});
 	WorldFirst.findById(req.params.id, function(err, worldFirstDocument){
