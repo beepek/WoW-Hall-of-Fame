@@ -3,11 +3,12 @@
 <section id="show-page">
     <tr>
         <td><%= worldFirst.boss %></td>
-        <td><%= worldFirst.guild %></td>
+        <td><%= guild.guild %></td>
         <td><%= worldFirst.killDate %></td>
         <td><%= worldFirst.attempts %> </td>
         <td><%= worldFirst.comments %></td>
    </tr>
+   <% if(userPost) { %> 
    <form action="/worldfirst/<%= worldFirst._id %>?_method=DELETE" method="POST">
     <button type="submit" class="btn btn-secondary btn-lg px-4 gap-3">Delete Post</button>
   </form>
@@ -17,6 +18,6 @@
     <button type="submit" class="btn btn-secondary btn-lg px-4 gap-3">Edit Post</button>
     
 </form>
-
+<% } %>
 
 <%- include('../partials/footer') %>

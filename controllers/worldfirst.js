@@ -10,16 +10,24 @@ module.exports = {
 	show,
     delete: deleteWorldFirst,
     update: updateOne,
-    edit: editWorldFirst
+    edit: editWorldFirst,
 	
 }
 
 
-function show(req, res) {
-	WorldFirst.findById(req.params.id, function(err, worldFirstDocument){
+async function show(req, res) {
+	WorldFirst.findById(req.params.id, async function(err, worldFirstDocument){
+		let userPost= false;
+		if(req.user){
+			if(worldFirstDocument.user == req.user.id){
+				userPost=true
+			} 
+		}
+		const guild=await Guild.findById(worldFirstDocument.guild)
 		//Guild.find({worldFirst:req.params.id}, function(err, guildDocument){
+			
 		console.log(worldFirstDocument, "world first page")
-		res.render('worldfirst/show', { title: 'Kill Details', worldFirst: worldFirstDocument});
+		res.render('worldfirst/show', { title: 'Kill Details', worldFirst: worldFirstDocument, userPost, guild});
 		//})
 	});
 }
@@ -44,14 +52,6 @@ const newWorldFirst={
 		
 		console.log(worldFirstArray, "all world Firsts");
 
-		//Ticket.find({flightDocumentCreatedInTheDatabase}) " <- all the flights");
-		
-			//res.send('You have an error trying to find the world Firsts, check the terminal')
-		
-
-		// response should be inside the callback, 
-		// because this is after we got a response from the db that we 
-		// found all the world Firsts
 		res.render('worldfirst/index.ejs', {
 			worldFirst: worldFirstArray
 		});// end of render
@@ -67,7 +67,9 @@ function newWorldFirst(req, res){
 async function create(req, res) {
    console.log(req.body.guild, "reqbody");
 	const guildDocument=await Guild.create({guild: req.body.guild});
+	console.log(req.user,"this is the user");
 	req.body.guild=guildDocument
+	req.body.user=req.user.id
 	const worldFirstDocument=await WorldFirst.create(req.body)
 	console.log(guildDocument, "guild document");
 		//WorldFirst.create(req.body, function(err, worldFirstDocument){
@@ -83,17 +85,43 @@ async function create(req, res) {
         //res.redirect(`worldfirst`);
 };
 function deleteWorldFirst(req, res) {
+
     WorldFirst.findByIdAndRemove(req.params.id, function(){
         res.redirect('/worldfirst')
     })
 }
-function updateOne(req, res) {
-    WorldFirst.findByIdAndUpdate(req.params.id, function(){
-        res.redirect('/worldfirst')
+async function updateOne(req, res) {
+	const guildDocument=await Guild.create({guild: req.body.guild});
+	WorldFirst.findById(req.params.id, function(err, worldFirstDocument){
+		worldFirstDocument.attempts=req.body.attempts
+	worldFirstDocument.guild=guildDocument._id	 
+		worldFirstDocument.killDate=req.body.killDate
+		worldFirstDocument.boss=req.body.boss
+		
+		worldFirstDocument.save(function(err){
+		
+			res.redirect('/worldfirst')
+		})
+       
     })
 }
 function editWorldFirst(req, res){
     WorldFirst.findById(req.params.id, function(err, worldFirstDocument){
-        res.render('worldfirst/edit', { title: 'Kill Details', worldFirst: worldFirstDocument})
-    })
+		// worldFirstDocument.attempts=req.body.attempts 
+		// worldFirstDocument.killDate=req.body.killDate
+		// worldFirstDocument.boss=req.body.boss
+		// worldFirstDocument.save(function(err){
+			if(err){
+				res.redirect("/worldfirst")
+			}
+			res.render('worldfirst/edit', { title: 'Kill Details', worldFirst: worldFirstDocument})
+		})
+       
+    
 }  
+
+function editForm(req, res){
+	WorldFirst.findOne({_id: req.params.id},function(err, worldfirstDoc){
+	res.render('worldfirst/edit', worldfirstDoc)
+})
+}

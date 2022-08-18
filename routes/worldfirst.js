@@ -10,5 +10,7 @@ router.get('/:id', worldFirstController.show);
 router.post('/', worldFirstController.create);
 router.delete('/:id', worldFirstController.delete);
 router.get('/:id/edit', worldFirstController.edit);
+router.put('/:id', worldFirstController.update);
+
 
 module.exports = router;

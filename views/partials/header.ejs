@@ -9,7 +9,12 @@
 </head>
 <body>
   <nav>
-   
+    <% if (user) { %>
+        <a href="/worldfirst/new">Add World First</a></a>
+      <a href="/logout">LOG OUT</a>
+    <% } else { %>
+      <a href="/auth/google" class="login">LOG IN</a>
+    <% } %>
   </nav>
   <main>
    

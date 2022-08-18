@@ -1,3 +1,4 @@
+<%- include('../partials/header') %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,27 +8,25 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/worldfirst/<%= worldFirst._id %>?_method=UPDATE" method="POST">
-        <button type="submit" class="btn btn-secondary btn-lg px-4 gap-3">Edit Post</button>
-        <label>Edit:
-            <input type="text" name="Edit">
+    <form action="/worldfirst/<%= worldFirst._id %>?_method=PUT" method="POST">
             <label>Boss:
             <input type="text" name="boss">
 		</label><br>
 		<label>Guild:
 			<input type="text" name="guild">
 		</label><br>
-		<label>Date
-			<input type="text" name="date">
+		<label>Kill Date
+			<input type="text" name="killDate">
 		</label><br>
-		<label>Days Lived
-			<input type="text" name="days lived">
+		<label>Attempts
+			<input type="text" name="attempts">
 		</label><br>
-		<label>Comment
+		<!-- <label>Comment
 			<input type="text" name="new comment">
-		</label><br>
+		</label><br> -->
 		<input type="submit" value="Add World First">
     </form>
     
 </body>
 </html>
+<%- include('../partials/footer') %>
