@@ -5,7 +5,7 @@ const worldFirstSchema =  new mongoose.Schema ({
     boss: String,       
     killDate: Number,
     attempts: Number,
-    guild: { type: mongoose.Schema.Types.ObjectId, ref: "Guild" },
+    guild: String,
     user: {type: mongoose.Schema.Types.ObjectId, ref: "User"},
     
 });
