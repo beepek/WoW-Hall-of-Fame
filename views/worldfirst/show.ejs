@@ -12,12 +12,37 @@
    <form action="/worldfirst/<%= worldFirst._id %>?_method=DELETE" method="POST">
     <button type="submit" class="btn btn-secondary btn-lg px-4 gap-3">Delete Post</button>
   </form>
-   <a href="/worldfirst/<%= worldFirst._id %>/edit">Hello</a>   
+   <a href="/worldfirst/<%= worldFirst._id %>/edit"></a>   
   <form action="/worldfirst/<%= worldFirst._id %>/edit">
     
     <button type="submit" class="btn btn-secondary btn-lg px-4 gap-3">Edit Post</button>
     
 </form>
 <% } %>
-
+  <% if (user) { %>
+    <h2>Comments</h2>
+    <form id="add-comment-form" method="POST" action="/worldfirst/<%=worldFirst._id %>/comments">
+    <label>Comment</label>
+    <textarea name="comments"></textarea>
+    <input type="submit" value="Add Comment">
+    </form>  
+    <% } %>
+<% if (worldFirst.comments.length) { %>
+<table>
+  <thread>
+    <tr>
+      <th>Comment</th>
+    </tr>
+  </thread>
+  <tbody>
+    <% worldFirst.comments.forEach(function(c) { %>
+      <tr>
+        <td><%= c.comments %></td>
+      </tr>
+    <% }); %>
+  </tbody>
+</table>
+<% } else { %>
+  <h5>No Comments Yet</h5>
+<% } %>
 <%- include('../partials/footer') %>

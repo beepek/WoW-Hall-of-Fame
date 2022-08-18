@@ -12,6 +12,7 @@ const methodOverride = require('method-override');
 const indexRouter = require('./routes/index');
 const guildRouter = require('./routes/guilds');
 const worldFirstRouter = require('./routes/worldfirst');
+const commentsRouter =require('./routes/comments');
 
 
 
@@ -54,6 +55,8 @@ app.use(function (req, res, next) {
 });
 app.use('/', indexRouter);
 app.use('/worldfirst', worldFirstRouter);
+app.use('/', commentsRouter);
+
 // mount all routes with appropriate base paths
 // app.use('/', indexRoutes);
 
