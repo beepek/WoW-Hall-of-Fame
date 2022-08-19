@@ -18,7 +18,7 @@ OAuth
 
 trello: https://trello.com/b/WEtecyGx/wow-hall-of-fame
 
-launch the app: https://cryptic-ocean-72141.herokuapp.com/oauth2callback
+launch the app: https://wow-halloffame.herokuapp.com/worldfirst
 
 
 ### Next Steps
