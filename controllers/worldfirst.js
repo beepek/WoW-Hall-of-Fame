@@ -47,7 +47,7 @@ function create(req, res) {
 	worldFirst.user = req.user._id;
 	worldFirst.save(function(err){
 		if (err) return res.redirect('/worldfirst/new');
-		res.redirect(`/worldfirst`);
+		res.redirect('/worldfirst');
 	});
 };
 function deleteWorldFirst(req, res) {
@@ -66,7 +66,7 @@ WorldFirst.findOneAndUpdate(
 	{new: true},
 	function(err, worldFirst) {
 		if (err || !worldFirst) return res.redirect('/worldfirst');
-		res.redirect(`/worldfirst`)
+		res.redirect('/worldfirst')
 	}
 );
 }
