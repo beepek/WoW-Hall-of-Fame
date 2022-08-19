@@ -6,7 +6,7 @@
         <td><%= worldFirst.guild %></td>
         <td><%= worldFirst.killDate %></td>
         <td><%= worldFirst.attempts %> </td>
-        <td><%= worldFirst.comments %></td>
+        
    </tr>
    <% if(user) { %> 
    <form action="/worldfirst/<%= worldFirst._id %>?_method=DELETE" method="POST">

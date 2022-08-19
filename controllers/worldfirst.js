@@ -72,10 +72,6 @@ WorldFirst.findOneAndUpdate(
 }
 function edit(req, res) {
 	WorldFirst.findById(req.params.id, function (err, worldFirstDocument) {
-		// worldFirstDocument.attempts=req.body.attempts 
-		// worldFirstDocument.killDate=req.body.killDate
-		// worldFirstDocument.boss=req.body.boss
-		// worldFirstDocument.save(function(err){
 		if (err) {
 			res.redirect("/worldfirst")
 		}
