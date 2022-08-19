@@ -7,7 +7,7 @@ const commentSchema = new mongoose.Schema ({
 });
 const worldFirstSchema =  new mongoose.Schema ({
     boss: String,       
-    killDate: Number,
+    killDate: String,
     attempts: Number,
     guild: String,
     user: {type: mongoose.Schema.Types.ObjectId, ref: "User"},

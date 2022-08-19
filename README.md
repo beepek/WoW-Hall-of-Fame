@@ -3,6 +3,9 @@
 The WoW Hall of Fame App is a catalogue of all world firsts achieved in World of Warcraft over the game's nearly 20 year history. In World of Warcraft, whenever new raids are introduced, the best players in the world compete to be the first to kill the final boss. For nearly 20 years these top guilds (a team of players) have fought to claim this difficult feat. 
 
 ### Screenshots
+<img src="https://i.imgur.com/OoroS7U.png">
+
+<img src="https://i.imgur.com/q2NtgJy.png">
 
 
 ### Technology Used
