@@ -66,14 +66,14 @@ WorldFirst.findOneAndUpdate(
 	{new: true},
 	function(err, worldFirst) {
 		if (err || !worldFirst) return res.redirect('/worldfirst');
-		res.redirect('/worldfirst')
+		res.redirect('/worldfirst');
 	}
 );
 }
 function edit(req, res) {
 	WorldFirst.findById(req.params.id, function (err, worldFirstDocument) {
 		if (err) {
-			res.redirect("/worldfirst")
+			res.redirect('/worldfirst')
 		}
 		res.render('worldfirst/edit', { title: 'Kill Details', worldFirst: worldFirstDocument })
 	})
